@@ -1,4 +1,4 @@
 # unstable
-tools under construction
+Tools under construction.
 
-docker.ps1 - powershell script for install docker in 2k19 aggregate info from MS & Docker
+docker-install.ps1 - powershell script for install docker in 2k19. Aggregate info from MS & Docker into one script for automatic install.

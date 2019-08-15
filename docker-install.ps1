@@ -5,12 +5,13 @@
 
 # prepare machine environment & stop docker service
 
-    if ([Environment]::GetEnvironmentVariable("PATH",[EnvironmentVariableTarget]::Machine) -notmatch "docker") {
+    if ([Environment]::GetEnvironmentVariable("PATH",[EnvironmentVariableTarget]::Machine) -match "docker") {
+        Get-Service *docker* | Stop-Service -Force -Confirm:$false
+    } else {
         [System.Environment]::SetEnvironmentVariable("DOCKER_FIPS", "1", "Machine")
         $NewPath = [Environment]::GetEnvironmentVariable("PATH",[EnvironmentVariableTarget]::Machine)+";$env:ProgramFiles\docker"
         [Environment]::SetEnvironmentVariable("PATH", $newPath,[EnvironmentVariableTarget]::Machine)
         $env:path += ";$env:ProgramFiles\docker"
-        Get-Service *docker* | Stop-Service -Force -Confirm:$false
     }
 
 #install conatiners

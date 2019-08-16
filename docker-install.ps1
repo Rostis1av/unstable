@@ -22,7 +22,8 @@
     Find-Module dockermsftprovider -Repository psgallery | Install-Module -Force -Confirm:$false
 
 # download info about Docker Versions from MS site
-    $DockerResource = Invoke-WebRequest -Uri 'https://dockermsft.blob.core.windows.net/dockercontainer/DockerMsftIndex.json' | ConvertFrom-Json
+    Start-BitsTransfer -Source "https://dockermsft.blob.core.windows.net/dockercontainer/DockerMsftIndex.json" -Destination "$env:userprofile\Downloads\DockerMsftIndex.json"
+    $DockerResource = Get-Content "$env:userprofile\Downloads\DockerMsftIndex.json" | ConvertFrom-Json
     $DockerCurrentVersion=$DockerResource.versions.($DockerResource.channels.($DockerResource.channels.cs.alias).version)
     $DockerVersion=($DockerCurrentVersion.url).Split("/")[-1]
     $DockerSource=$DockerCurrentVersion.url

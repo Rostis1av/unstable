@@ -1,8 +1,3 @@
-# Don't forget creat cpecify folder for your script module in folder #
-# C:\Windows\System32\WindowsPowerShell\v1.0\Modules\%modulename%    #
-# and put there are psm1-file
-# Change $env:PSModulePath
-
 $host.ui.RawUI.WindowTitle="XEN Daemons"
 
 function global:prompt{

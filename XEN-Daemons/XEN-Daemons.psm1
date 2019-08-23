@@ -2,36 +2,15 @@
 # C:\Windows\System32\WindowsPowerShell\v1.0\Modules\%modulename%    #
 # and put there are psm1-file
 # Change $env:PSModulePath
-<#
- For Machines
- $path = [System.Environment]::GetEnvironmentVariable("PSModulePath", "Machine")
- $path -split ";"
- 
- [System.Environment]::SetEnvironmentVariable("PSModulePath", $path + ";D:\RGBronzov\PSModules", "Machine")
- $path -split ";"
- 
- $path = [System.Environment]::GetEnvironmentVariable("PSModulePath", "User")
- [System.Environment]::SetEnvironmentVariable("PSModulePath", $path + ";$home\Documents\Fabrikam\Modules", "User")
 
- #>
+$host.ui.RawUI.WindowTitle="XEN Daemons"
 
-<# Prompt change
 function global:prompt{
-    # change prompt text
-    Write-Host "XEN " -NoNewLine -ForegroundColor Green
-    Write-Host ((Get-Date -f "HH:mm:ss")+">") -NoNewLine -ForegroundColor Yellow
+    Write-Host "$env:USERDOMAIN`\$env:USERNAME " -NoNewLine -ForegroundColor Green
+    Write-Host ((Get-Date -f "HH:mm:ss")) -ForegroundColor Yellow
+    Write-Host (Get-Location)">>" -NoNewline
     return " "
 }
-#>
-<#
-function global:prompt{
-    # change prompt text
-    Write-Host ((Get-Date -f "HH:mm:ss")+" "+(cat Env:\USERDOMAIN)+"\"+(cat Env:\USERNAME)+" "+(Get-Location)) -ForegroundColor Yellow
-    return "PS"+">>"
-}
-#>
-
-# $host.ui.RawUI.WindowTitle="XEN Daemons"
 
 function Search-WmiObject {
 <#

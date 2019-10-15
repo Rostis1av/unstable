@@ -4,9 +4,6 @@
 ## [EUServiceMGMT](https://github.com/Rostis1av/unstable/tree/master/EUServiceMGMT)
 **Example cmdlet->script->param script->function->Module**
 
-## [XEN-Daemons](https://github.com/Rostis1av/unstable/tree/master/XEN-Daemons)
-**Example tools**
-
 ## automation Docker Install
 **powershell script for install docker in 2k19**
 - docker-install.ps1 - powershell script for install docker in 2k19. Aggregate info from MS & Docker into one script for automatic install.
